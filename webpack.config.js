@@ -4,7 +4,9 @@ const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "https://mf-colorlist-wt.netlify.app/",
+    publicPath: argv.mode == 'dev' 
+    ? "http://localhost:3002/"
+    : "https://mf-colorlist-wt.netlify.app/",
   },
 
   resolve: {
